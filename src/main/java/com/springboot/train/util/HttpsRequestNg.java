@@ -17,6 +17,8 @@ import org.slf4j.LoggerFactory;
 
 public class HttpsRequestNg extends HttpRequestNg{
 	private final static Logger logger=LoggerFactory.getLogger(HttpsRequestNg.class);
+	private static HttpRequestNg httpRequestNg;
+
 	public HttpsRequestNg(){
 		try {
 //			HttpsURLConnection.setFollowRedirects(true);
@@ -38,5 +40,10 @@ public class HttpsRequestNg extends HttpRequestNg{
 			logger.error("",e);
 		} 
 	}
-	
+	public static HttpRequestNg getHttpClient() {
+		return httpRequestNg;
+	}
+	public static void setHttpClient(HttpRequestNg httpRequestNg) {
+		HttpsRequestNg.httpRequestNg=httpRequestNg;
+	}
 }

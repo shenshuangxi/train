@@ -24,12 +24,12 @@ public class MyHandlerInterceptor implements HandlerInterceptor {
 			String url = "https://kyfw.12306.cn/otn/login/init";
 			try {
 				httpclient.doGet(url);
-				request.setAttribute("httpClient", httpclient);
+				HttpsRequestNg.setHttpClient(httpclient);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}		
 		}
-		request.setAttribute("httpClient",attribute);
+		HttpsRequestNg.setHttpClient((HttpRequestNg)attribute);
 		session.setAttribute("httpClient", attribute);
 		return handlerOk;
 	}
